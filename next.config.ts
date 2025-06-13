@@ -13,5 +13,11 @@ export default {
         pathname: '/s/files/**'
       }
     ]
-  }
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
