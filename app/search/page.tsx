@@ -17,7 +17,7 @@ function BlancaProductCard({ product }: { product: Product }) {
     <div className="group">
       <Link href={`/product/${product.handle}`} className="block">
         {/* Product Images */}
-        <div className="aspect-[3/4] bg-gray-50 overflow-hidden rounded-lg mb-6 relative">
+        <div className="aspect-[3/4] bg-gray-50 dark:bg-neutral-800 overflow-hidden rounded-lg mb-6 relative transition-colors">
           {featuredImage ? (
             <Image
               src={featuredImage}
@@ -27,8 +27,8 @@ function BlancaProductCard({ product }: { product: Product }) {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           ) : (
-            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-              <span className="text-gray-400">No Image</span>
+            <div className="w-full h-full bg-gray-100 dark:bg-neutral-700 flex items-center justify-center transition-colors">
+              <span className="text-gray-400 dark:text-gray-500 transition-colors">No Image</span>
             </div>
           )}
 
@@ -42,13 +42,13 @@ function BlancaProductCard({ product }: { product: Product }) {
 
         {/* Product Info */}
         <div>
-          <h2 className="text-xl font-medium text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
             {product.title}
           </h2>
-          <p className="text-gray-900 font-medium text-lg mb-4">
+          <p className="text-gray-900 dark:text-gray-100 font-medium text-lg mb-4 transition-colors">
             ${price > 0 ? price.toFixed(2) : 'Contact for price'}
           </p>
-          <p className="text-gray-600 text-sm line-clamp-2">
+          <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 transition-colors">
             {product.description || "Handcrafted with artisan quality and authentic details."}
           </p>
         </div>
@@ -67,34 +67,34 @@ export default async function SearchPage(props: {
   const products = await getProducts({ sortKey, reverse, query: searchValue });
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-neutral-900 min-h-screen transition-colors">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Header with Breadcrumb */}
         <div className="mb-16">
-          <nav className="text-sm text-gray-500 mb-8">
+          <nav className="text-sm text-gray-500 dark:text-gray-400 mb-8 transition-colors">
             Dolls
           </nav>
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-8">
+          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 dark:text-gray-100 mb-8 transition-colors">
             Dolls
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl transition-colors">
             Made from the highest quality materials and latest techniques used by professional
             reborn artists for a fraction of the price.
           </p>
         </div>
 
         {/* Filter/Sort Section */}
-        <div className="flex items-center justify-between mb-12 pb-4 border-b border-gray-200">
+        <div className="flex items-center justify-between mb-12 pb-4 border-b border-gray-200 dark:border-neutral-700 transition-colors">
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">Expertise</span>
-            <span className="text-sm text-gray-600">Playstyle</span>
+            <span className="text-sm text-gray-600 dark:text-gray-400 transition-colors">Expertise</span>
+            <span className="text-sm text-gray-600 dark:text-gray-400 transition-colors">Playstyle</span>
           </div>
           {searchValue && (
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors">
               {products.length === 0
                 ? 'No dolls found matching '
                 : `${products.length} ${products.length === 1 ? 'result' : 'results'} for `}
-              <span className="font-medium text-gray-900">&quot;{searchValue}&quot;</span>
+              <span className="font-medium text-gray-900 dark:text-gray-100 transition-colors">&quot;{searchValue}&quot;</span>
             </div>
           )}
         </div>
@@ -109,10 +109,10 @@ export default async function SearchPage(props: {
         ) : (
           /* No results found */
           <div className="text-center py-16">
-            <h3 className="text-2xl font-light text-gray-900 mb-4">
+            <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-4 transition-colors">
               No dolls found
             </h3>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto transition-colors">
               {searchValue
                 ? "We couldn't find any dolls matching your search. Try different keywords."
                 : "No dolls are currently available. Please check back later."
@@ -120,7 +120,7 @@ export default async function SearchPage(props: {
             </p>
             <Link
               href="/search"
-              className="inline-block bg-gray-900 text-white px-8 py-3 font-medium hover:bg-gray-800 transition-colors rounded-lg"
+              className="inline-block bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-8 py-3 font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors rounded-lg"
             >
               View All Dolls
             </Link>
@@ -129,10 +129,10 @@ export default async function SearchPage(props: {
 
         {/* About us section - only show if we have products */}
         {products.length > 0 && (
-          <div className="mt-24 pt-16 border-t border-gray-100">
+          <div className="mt-24 pt-16 border-t border-gray-100 dark:border-neutral-700 transition-colors">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-light text-gray-900 mb-8">About us</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-8 transition-colors">About us</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto transition-colors">
                 Made with the same technology used by professional reborn artists for a fraction of the price.
               </p>
             </div>
@@ -144,7 +144,7 @@ export default async function SearchPage(props: {
                     <path d="M25 0L35 15L50 17L37.5 30L40 45L25 37L10 45L12.5 30L0 17L15 15L25 0Z" fill="currentColor" className="text-gray-900"/>
                   </svg>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-400 transition-colors">
                   Our dolls feature meticulous craftsmanship, perfect for those who prefer artistry with authentic details
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default async function SearchPage(props: {
                     <path d="M23.5 0L29 11L40 12.5L31 21.5L33.5 32.5L23.5 27L13.5 32.5L16 21.5L7 12.5L18 11L23.5 0Z" fill="currentColor" className="text-gray-900"/>
                   </svg>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-400 transition-colors">
                   All our products are suitable for collectors of all levels, from beginners to advanced enthusiasts
                 </p>
               </div>
@@ -164,7 +164,7 @@ export default async function SearchPage(props: {
                     <path d="M19.5 0L24 10L34 11L26 19L28 29L19.5 24L11 29L13 19L5 11L15 10L19.5 0Z" fill="currentColor" className="text-gray-900"/>
                   </svg>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-400 transition-colors">
                   Our dolls feature the highest quality materials including premium vinyl and mohair
                 </p>
               </div>
@@ -176,36 +176,36 @@ export default async function SearchPage(props: {
         {products.length > 0 && (
           <div className="mt-24">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-light text-gray-900 mb-8">Testimonials</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-8 transition-colors">Testimonials</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto transition-colors">
                 See what our collectors think
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
               <div className="flex space-x-6">
-                <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0"></div>
+                <div className="w-20 h-20 bg-gray-200 dark:bg-neutral-700 rounded-lg flex-shrink-0 transition-colors"></div>
                 <div>
-                  <blockquote className="text-gray-900 mb-4">
+                  <blockquote className="text-gray-900 dark:text-gray-100 mb-4 transition-colors">
                     "Professional-Grade Craftsmanship"
                   </blockquote>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
                     Rebecca's Reborns delivers dolls that feel professional yet accessible. The attention to detail and realistic features are next-level. I've received countless compliments about my collection since discovering Rebecca's work.
                   </p>
-                  <p className="text-sm text-gray-500">Sarah M. on Dolls</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-500 transition-colors">Sarah M. on Dolls</p>
                 </div>
               </div>
 
               <div className="flex space-x-6">
-                <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0"></div>
+                <div className="w-20 h-20 bg-gray-200 dark:bg-neutral-700 rounded-lg flex-shrink-0 transition-colors"></div>
                 <div>
-                  <blockquote className="text-gray-900 mb-4">
+                  <blockquote className="text-gray-900 dark:text-gray-100 mb-4 transition-colors">
                     "Incredible Attention to Detail"
                   </blockquote>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
                     The quality of these reborn dolls is incredible. Whether for collecting or gifting, I feel in total command of my investment. Rebecca has perfected the blend of artistry and authenticity.
                   </p>
-                  <p className="text-sm text-gray-500">Michael K. on Dolls</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-500 transition-colors">Michael K. on Dolls</p>
                 </div>
               </div>
             </div>

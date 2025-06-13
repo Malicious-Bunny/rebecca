@@ -2,23 +2,23 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 export function VendorContact() {
   return (
-    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-      <h3 className="text-xl font-medium text-gray-900 mb-6">Contact Rebecca to Purchase</h3>
-      <p className="text-gray-600 mb-6">
+    <div className="bg-gray-50 dark:bg-neutral-800 p-6 rounded-lg border border-gray-200 dark:border-neutral-700 transition-colors">
+      <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-6 transition-colors">Contact Rebecca to Purchase</h3>
+      <p className="text-gray-600 dark:text-gray-400 mb-6 transition-colors">
         Interested in this beautiful reborn doll? Contact Rebecca directly to discuss pricing, customization options, and availability.
       </p>
 
       <div className="space-y-4">
-        {/* Phone */}
+        {/* SMS */}
         <div className="flex items-center space-x-3">
           <div className="flex-shrink-0">
-            <PhoneIcon className="h-5 w-5 text-gray-400" />
+            <PhoneIcon className="h-5 w-5 text-gray-400 dark:text-gray-500 transition-colors" />
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900">Phone</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100 transition-colors">SMS</p>
             <a
-              href="tel:+1234567890"
-              className="text-blue-600 hover:text-blue-700 transition-colors"
+              href="sms:+1234567890"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
               +1 (234) 567-8900
             </a>
@@ -28,13 +28,13 @@ export function VendorContact() {
         {/* Email */}
         <div className="flex items-center space-x-3">
           <div className="flex-shrink-0">
-            <EnvelopeIcon className="h-5 w-5 text-gray-400" />
+            <EnvelopeIcon className="h-5 w-5 text-gray-400 dark:text-gray-500 transition-colors" />
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900">Email</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100 transition-colors">Email</p>
             <a
               href="mailto:rebecca@rebeccasreborns.com"
-              className="text-blue-600 hover:text-blue-700 transition-colors"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
               rebecca@rebeccasreborns.com
             </a>
@@ -45,7 +45,7 @@ export function VendorContact() {
         <div className="flex items-center space-x-3">
           <div className="flex-shrink-0">
             <svg
-              className="h-5 w-5 text-gray-400"
+              className="h-5 w-5 text-gray-400 dark:text-gray-500 transition-colors"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -53,12 +53,12 @@ export function VendorContact() {
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900">Facebook</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100 transition-colors">Facebook</p>
             <a
               href="https://facebook.com/rebeccasreborns"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 transition-colors"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
               Rebecca's Reborns
             </a>
@@ -66,8 +66,8 @@ export function VendorContact() {
         </div>
       </div>
 
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <p className="text-sm text-gray-500">
+      <div className="mt-6 pt-6 border-t border-gray-200 dark:border-neutral-700 transition-colors">
+        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
           Response time: Usually within 24 hours
         </p>
       </div>

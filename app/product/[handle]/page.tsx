@@ -82,7 +82,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
         }}
       />
 
-      <div className="bg-white">
+      <div className="bg-white dark:bg-neutral-900 transition-colors">
         {/* Product Details */}
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-start">
@@ -90,7 +90,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
             <div>
               <Suspense
                 fallback={
-                  <div className="aspect-square w-full overflow-hidden minimal-rounded bg-gray-100" />
+                  <div className="aspect-square w-full overflow-hidden minimal-rounded bg-gray-100 dark:bg-neutral-700 transition-colors" />
                 }
               >
                 <Gallery
@@ -125,16 +125,16 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="mt-24 pt-16 border-t border-gray-100">
+    <div className="mt-24 pt-16 border-t border-gray-100 dark:border-neutral-700 transition-colors">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-light text-gray-900 mb-4">Recommendations</h2>
-        <p className="text-lg text-gray-600">You might also like these dolls</p>
+        <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 transition-colors">Recommendations</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 transition-colors">You might also like these dolls</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-16">
         {relatedProducts.slice(0, 3).map((product) => (
           <div key={product.handle} className="group">
             <Link href={`/product/${product.handle}`} className="block">
-              <div className="aspect-[3/4] bg-gray-50 overflow-hidden rounded-lg mb-6 relative">
+              <div className="aspect-[3/4] bg-gray-50 dark:bg-neutral-800 overflow-hidden rounded-lg mb-6 relative transition-colors">
                 {product.featuredImage?.url ? (
                   <ImageComponent
                     src={product.featuredImage.url}
@@ -144,20 +144,20 @@ async function RelatedProducts({ id }: { id: string }) {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                    <span className="text-gray-400">No Image</span>
+                  <div className="w-full h-full bg-gray-100 dark:bg-neutral-700 flex items-center justify-center transition-colors">
+                    <span className="text-gray-400 dark:text-gray-500 transition-colors">No Image</span>
                   </div>
                 )}
               </div>
 
               <div>
-                <h4 className="text-xl font-medium text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
+                <h4 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                   {product.title}
                 </h4>
-                <p className="text-gray-900 font-medium text-lg mb-4">
+                <p className="text-gray-900 dark:text-gray-100 font-medium text-lg mb-4 transition-colors">
                   ${parseFloat(product.priceRange.minVariantPrice.amount).toFixed(2)}
                 </p>
-                <p className="text-gray-600 text-sm line-clamp-2">
+                <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 transition-colors">
                   {product.description || "Handcrafted with artisan quality and authentic details."}
                 </p>
               </div>

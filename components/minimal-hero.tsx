@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function MinimalHero() {
   return (
-    <section className="relative bg-white dark:bg-neutral-900 py-16 md:py-24 px-4 md:px-6 text-center transition-colors overflow-hidden">
+    <section className="relative bg-white dark:bg-neutral-900 min-h-screen py-16 md:py-24 px-4 md:px-6 text-center transition-colors overflow-hidden flex items-center">
       {/* Background Images */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 md:w-48 md:h-48">
